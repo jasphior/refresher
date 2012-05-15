@@ -2,13 +2,13 @@ package com.vaadin.addon.refresher.gwt.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.Widget;
-import com.vaadin.addon.refresher.TimeUpdater;
+import com.vaadin.addon.refresher.SinceAutoUpdater;
 import com.vaadin.terminal.gwt.client.communication.StateChangeEvent;
 import com.vaadin.terminal.gwt.client.ui.Connect;
 import com.vaadin.terminal.gwt.client.ui.customcomponent.CustomComponentConnector;
 
-@Connect(TimeUpdater.class)
-public class TimeUpdaterConnector extends CustomComponentConnector {
+@Connect(SinceAutoUpdater.class)
+public class SinceAutoUpdaterConnector extends CustomComponentConnector {
 
 	@Override
 	public TimeUpdaterState getState() {
@@ -17,12 +17,12 @@ public class TimeUpdaterConnector extends CustomComponentConnector {
 
 	@Override
 	protected Widget createWidget() {
-		return GWT.create(VTimeUpdater.class);
+		return GWT.create(VSinceAutoUpdater.class);
 	}
 
 	@Override
-	public VTimeUpdater getWidget() {
-		return (VTimeUpdater) super.getWidget();
+	public VSinceAutoUpdater getWidget() {
+		return (VSinceAutoUpdater) super.getWidget();
 	}
 
 	@Override

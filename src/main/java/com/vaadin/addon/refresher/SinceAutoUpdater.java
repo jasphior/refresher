@@ -3,7 +3,7 @@ package com.vaadin.addon.refresher;
 import com.vaadin.addon.refresher.gwt.client.TimeUpdaterState;
 import com.vaadin.ui.CustomComponent;
 
-public class TimeUpdater extends CustomComponent {
+public class SinceAutoUpdater extends CustomComponent {
 	private long initalTime;
 	private int updateFrequency;
 	private boolean shortTime;

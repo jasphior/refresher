@@ -6,7 +6,7 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.vaadin.terminal.gwt.client.ui.customcomponent.VCustomComponent;
 
-public class VTimeUpdater extends VCustomComponent {
+public class VSinceAutoUpdater extends VCustomComponent {
 
 	/** Set the CSS class name to allow styling. */
 	public static final String CLASSNAME = "v-timer-component";
@@ -22,7 +22,7 @@ public class VTimeUpdater extends VCustomComponent {
 	 * The constructor should first call super() to initialize the component and
 	 * then handle any initialization relevant to Vaadin.
 	 */
-	public VTimeUpdater() {
+	public VSinceAutoUpdater() {
 		// TODO Example code is extending GWT Widget so it must set a root
 		// element.
 		// Change to proper element or remove if extending another widget
