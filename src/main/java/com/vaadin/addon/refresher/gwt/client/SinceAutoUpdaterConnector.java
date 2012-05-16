@@ -5,14 +5,14 @@ import com.google.gwt.user.client.ui.Widget;
 import com.vaadin.addon.refresher.SinceAutoUpdater;
 import com.vaadin.terminal.gwt.client.communication.StateChangeEvent;
 import com.vaadin.terminal.gwt.client.ui.Connect;
-import com.vaadin.terminal.gwt.client.ui.customcomponent.CustomComponentConnector;
+import com.vaadin.terminal.gwt.client.ui.label.LabelConnector;
 
 @Connect(SinceAutoUpdater.class)
-public class SinceAutoUpdaterConnector extends CustomComponentConnector {
+public class SinceAutoUpdaterConnector extends LabelConnector {
 
 	@Override
-	public TimeUpdaterState getState() {
-		return (TimeUpdaterState) super.getState();
+	public SinceAutoUpdaterState getState() {
+		return (SinceAutoUpdaterState) super.getState();
 	}
 
 	@Override

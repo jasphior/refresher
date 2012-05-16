@@ -1,13 +1,13 @@
 package com.vaadin.addon.refresher.gwt.client;
 
-import com.vaadin.terminal.gwt.client.ComponentState;
+import com.vaadin.terminal.gwt.client.ui.label.LabelState;
 
-public class TimeUpdaterState extends ComponentState {
+public class SinceAutoUpdaterState extends LabelState {
 	private long initialTime;
 	private int updateFrequency;
 	private boolean shortTime;
 
-	public TimeUpdaterState() {
+	public SinceAutoUpdaterState() {
 	}
 
 	public long getInitialTime() {

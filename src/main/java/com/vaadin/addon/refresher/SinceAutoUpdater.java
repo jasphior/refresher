@@ -1,9 +1,9 @@
 package com.vaadin.addon.refresher;
 
-import com.vaadin.addon.refresher.gwt.client.TimeUpdaterState;
-import com.vaadin.ui.CustomComponent;
+import com.vaadin.addon.refresher.gwt.client.SinceAutoUpdaterState;
+import com.vaadin.ui.Label;
 
-public class SinceAutoUpdater extends CustomComponent {
+public class SinceAutoUpdater extends Label {
 	private long initalTime;
 	private int updateFrequency;
 	private boolean shortTime;
@@ -18,14 +18,14 @@ public class SinceAutoUpdater extends CustomComponent {
 	@Override
 	public void requestRepaint() {
 		super.requestRepaint();
-		TimeUpdaterState state = getState();
+		SinceAutoUpdaterState state = getState();
 		state.setInitialTime(initalTime);
 		state.setUpdateFrequency(updateFrequency);
 		state.setShortTime(shortTime);
 	}
 
 	@Override
-	public TimeUpdaterState getState() {
-		return (TimeUpdaterState) super.getState();
+	public SinceAutoUpdaterState getState() {
+		return (SinceAutoUpdaterState) super.getState();
 	}
 }

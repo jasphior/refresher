@@ -1,12 +1,11 @@
 package com.vaadin.addon.refresher.gwt.client;
 
 import com.google.gwt.core.client.JsDate;
-import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
-import com.vaadin.terminal.gwt.client.ui.customcomponent.VCustomComponent;
+import com.vaadin.terminal.gwt.client.ui.label.VLabel;
 
-public class VSinceAutoUpdater extends VCustomComponent {
+public class VSinceAutoUpdater extends VLabel {
 
 	/** Set the CSS class name to allow styling. */
 	public static final String CLASSNAME = "v-timer-component";
@@ -23,14 +22,7 @@ public class VSinceAutoUpdater extends VCustomComponent {
 	 * then handle any initialization relevant to Vaadin.
 	 */
 	public VSinceAutoUpdater() {
-		// TODO Example code is extending GWT Widget so it must set a root
-		// element.
-		// Change to proper element or remove if extending another widget
-		if (getElement() == null)
-			setElement(Document.get().createDivElement());
-
-		// This method call of the Paintable interface sets the component
-		// style name in DOM tree
+		super();
 		setStyleName(CLASSNAME);
 	}
 
@@ -47,7 +39,7 @@ public class VSinceAutoUpdater extends VCustomComponent {
 
 	private void update() {
 		try {
-			getElement().setInnerHTML(getTimeDifference(initialTime));
+			setText(getTimeDifference(initialTime));
 		} catch (Exception e) {
 			System.out.println(e);
 			handleError(e);
@@ -55,7 +47,7 @@ public class VSinceAutoUpdater extends VCustomComponent {
 	}
 
 	private void handleError(Exception e) {
-		Window.alert(e.getMessage() + " " + e.getLocalizedMessage());
+		System.err.println(e.getMessage() + " " + e.getLocalizedMessage());
 		if (e.getStackTrace() != null && e.getStackTrace().length > 0) {
 			StackTraceElement st = e.getStackTrace()[0];
 			Window.alert(st.getLineNumber() + ":" + st.getClassName() + "."
@@ -72,6 +64,7 @@ public class VSinceAutoUpdater extends VCustomComponent {
 
 	public void setInitialTime(long initialTime) {
 		this.initialTime = initialTime;
+		setText(getTimeDifference(initialTime));
 	}
 
 	public void startTimer(int updateFrequency) {
@@ -85,6 +78,7 @@ public class VSinceAutoUpdater extends VCustomComponent {
 
 	public void setShortTime(boolean shortTime) {
 		this.shortTime = shortTime;
+		setText(getTimeDifference(initialTime));
 	}
 
 	int i = 0;
@@ -122,7 +116,7 @@ public class VSinceAutoUpdater extends VCustomComponent {
 
 			}
 		}
-		return past ? "now" : txt;
+		return past || secs == 0 ? "now" : txt;
 	}
 
 	private String getTimeLinguistics(long qt, Time timeEn) {
